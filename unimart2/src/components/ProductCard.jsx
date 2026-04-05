@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiStar } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
-import Badge from "./badge";
+import Badge from "./badge.jsx";
 import Button from "./button.jsx";
 import StarRating from "./starRating.jsx";
 import "../styles/ProductCard.css";
@@ -28,19 +28,9 @@ export default function ProductCard({
   return (
     <div className="product-card">
 
-      <div className="product-img-wrap">
-        <img src={image} alt={name} className="product-img" />
-
+      <div className="product-body">
         <Badge label={badge} />
 
-        {discount && (
-          <span className="product-discount">-{discount}%</span>
-        )}
-
-      </div>
-
-      <div className="product-body">
-        <div className="product-brand">{brand}</div>
         <div className="product-name">{name}</div>
 
         <StarRating rating={rating} />
@@ -71,10 +61,15 @@ export default function ProductCard({
             aria-label={wished ? "Remove from favorites" : "Add to favorites"}
             title="Favourite"
           >
-            {wished ? <FaStar size={15} /> : <FiStar size={15} />}
+            {wished ? <FaStar size={17} /> : <FiStar size={17} />}
           </span>
         </div>
       </div>
+
+      <div className="product-img-wrap">
+        <img src={image} alt={name} className="product-img" />
+      </div>
+
     </div>
   );
 }

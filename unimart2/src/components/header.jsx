@@ -5,8 +5,9 @@ import "../styles/Header.css";
 
 const navLinks = ["HOME", "CATEGORY", "BEST SELLERS", "OFFERS & UPDATES"];
 
-export default function Header() {
-  const [active, setActive] = useState("HOME");
+export default function Header({ initialActive = "HOME", activeLink, onNavigate }) {
+  const [internalActive, setInternalActive] = useState(initialActive);
+  const active = activeLink ?? internalActive;
 
   return (
     <nav className="nav">
@@ -22,7 +23,12 @@ export default function Header() {
               className={`link ${active === link ? "active" : ""}`}
               onClick={(e) => {
                 e.preventDefault();
-                setActive(link);
+                if (onNavigate) {
+                  onNavigate(link);
+                  return;
+                }
+
+                setInternalActive(link);
               }}
             >
               {link}
@@ -34,7 +40,7 @@ export default function Header() {
       <div className="actions">
         <button className="iconBtn">
           <FiShoppingCart size={20} />
-          <span className="badge">0</span>
+          <span className="cart-badge">0</span>
         </button>
 
         <button className="iconBtn">

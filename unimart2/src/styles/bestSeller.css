@@ -1,0 +1,264 @@
+.bs-page {
+  min-height: 100vh;
+  background: #f4f6ef;
+  width: 100%;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  color: #1d2d1f;
+}
+
+.bs-shell {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(26, 92, 42, 0.08) 1.1px, transparent 0) 0 0 / 24px 24px,
+    #f6f7ef;
+  border: none;
+}
+
+.bs-shell .nav {
+  position: static;
+  height: 56px;
+  padding: 0 12px;
+  box-shadow: none;
+  background: #0f6a0e;
+}
+
+.bs-shell .logoImg {
+  height: 70px;
+}
+
+.bs-shell .links {
+  gap: 2px;
+}
+
+.bs-shell .link {
+  font-size: 0.52rem;
+  padding: 4px 8px;
+}
+
+.bs-content {
+  padding: 14px;
+}
+
+.bs-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.bs-promo {
+  border-radius: 12px;
+  min-height: 150px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d9e2cf;
+}
+
+.bs-promo-main {
+  background: linear-gradient(110deg, #f8f8f3 0%, #f1f5ea 100%);
+  padding: 16px;
+}
+
+.bs-promo-main h2 {
+  display: grid;
+  gap: 3px;
+  font-size: 1.95rem;
+  line-height: 1.03;
+  max-width: 67%;
+}
+
+.bs-promo-main h2 span:first-child {
+  color: #f28b22;
+}
+
+.bs-promo-main h2 strong {
+  color: #f28b22;
+}
+
+.bs-main-illustration {
+  position: absolute;
+  right: 8px;
+  bottom: -8px;
+  width: 44%;
+  height: 78%;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 24% 35%, #ef5f4b 13px, transparent 14px),
+    radial-gradient(circle at 48% 28%, #6fae41 14px, transparent 15px),
+    radial-gradient(circle at 62% 54%, #edb347 17px, transparent 18px),
+    radial-gradient(circle at 70% 30%, #d74e4e 10px, transparent 11px),
+    radial-gradient(circle at 40% 66%, #85b858 18px, transparent 19px),
+    linear-gradient(160deg, #ffffff, #ecefdf);
+}
+
+.bs-promo-side {
+  background: linear-gradient(160deg, #1ab35c, #12a744 58%, #0fa95a);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bs-side-can {
+  width: 68px;
+  height: 98px;
+  border-radius: 14px;
+  background:
+    linear-gradient(140deg, #f3ff71 2%, #9ad31f 52%, #46b81f 100%);
+  transform: rotate(-24deg);
+  box-shadow: inset -7px 0 0 rgba(255, 255, 255, 0.35);
+}
+
+.bs-promo-side p {
+  margin-top: 8px;
+  font-size: 0.66rem;
+  line-height: 1.3;
+  max-width: 130px;
+  color: #f5fff3;
+  font-weight: 700;
+}
+
+.bs-section {
+  margin-top: 16px;
+}
+
+.bs-section h4 {
+  color: #2c8534;
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.bs-products-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.bs-products-row .product-card {
+  border-radius: 10px;
+  border-color: #f2ebbf;
+  box-shadow: none;
+  background: #fff8c8;
+}
+
+.bs-categories {
+  margin-bottom: 18px;
+}
+
+.bs-category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a b b"
+    "a c d"
+    "e e e";
+  gap: 8px;
+}
+
+.bs-cat-box {
+  background: #d5e57a;
+  border-radius: 10px;
+  min-height: 78px;
+}
+
+.bs-cat-a {
+  grid-area: a;
+  min-height: 166px;
+}
+
+.bs-cat-b {
+  grid-area: b;
+}
+
+.bs-cat-c {
+  grid-area: c;
+}
+
+.bs-cat-d {
+  grid-area: d;
+}
+
+.bs-cat-e {
+  grid-area: e;
+  min-height: 92px;
+}
+
+.bs-shell .footer {
+  padding: 1.1rem 0.9rem 0.8rem;
+  background: #0d5f0f;
+}
+
+.bs-shell .footer-top {
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.bs-shell .footer-logo {
+  height: 72px;
+}
+
+.bs-shell .footer-desc,
+.bs-shell .footer-socials {
+  margin-left: 0;
+}
+
+.bs-shell .footer-desc {
+  max-width: 200px;
+  font-size: 0.62rem;
+  margin-bottom: 0.7rem;
+}
+
+.bs-shell .footer-col-title {
+  margin-top: 0;
+  font-size: 0.65rem;
+}
+
+.bs-shell .footer-list-link {
+  font-size: 0.62rem;
+}
+
+.bs-shell .footer-copy,
+.bs-shell .footer-bottom-link {
+  font-size: 0.58rem;
+}
+
+@media (max-width: 700px) {
+  .bs-shell {
+    width: 100%;
+  }
+
+  .bs-shell .nav {
+    height: auto;
+    min-height: 56px;
+    padding: 6px 8px;
+  }
+
+  .bs-shell .links {
+    gap: 8px;
+  }
+
+  .bs-shell .link {
+    font-size: 0.48rem;
+  }
+
+  .bs-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .bs-promo-main h2 {
+    max-width: 60%;
+    font-size: 1.7rem;
+  }
+
+  .bs-products-row {
+    grid-template-columns: 1fr;
+  }
+
+  .bs-shell .footer-top {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 16px;
+  }
+}
