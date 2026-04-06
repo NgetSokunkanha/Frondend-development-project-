@@ -1,0 +1,45 @@
+/* src/styles/ProductRow.css */
+
+.product-row {
+  position: relative;
+}
+
+.product-row-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.product-row-track::-webkit-scrollbar { display: none; }
+
+.product-row-item {
+  flex-shrink: 0;
+  width: 220px;
+}
+
+.product-row-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1.5px solid #dde8d5;
+  color: #3a7d1e;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.product-row-arrow:hover {
+  background: #edf7e5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.product-row-arrow-left  { left:  -18px; }
+.product-row-arrow-right { right: -18px; }

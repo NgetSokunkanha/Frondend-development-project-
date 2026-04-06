@@ -1,0 +1,56 @@
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.section-header-tag {
+  display: inline-block;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.section-header-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: #1a2e0e;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.section-header-subtitle {
+  font-size: 13px;
+  color: #6b7c61;
+  margin: 4px 0 0;
+}
+
+.section-header-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #5aad2e;
+  color: #3a7d1e;
+  font-weight: 700;
+  font-size: 13px;
+  padding-bottom: 2px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+.section-header-cta:hover {
+  color: #5aad2e;
+}
