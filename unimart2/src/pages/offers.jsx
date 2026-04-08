@@ -2,13 +2,13 @@ import { useNavigate } from "react-router-dom";
 import Header      from "../components/header.jsx";
 import Footer      from "../components/footer.jsx";
 import ProductCard from "../components/ProductCard.jsx";
-import { getItemsBySection } from "../data/storeItems.js";
+import { newProducts, bestSellers, allProducts } from "../data/Products.js";
 import promoBanner from "../assets/offers/promo banner.png";
 import "../styles/offers.css";
 
-const featuredOffers = getItemsBySection("featuredOffers");
-const dealsOfTheDay  = getItemsBySection("dealsOfTheDay");
-const promoItems     = [...featuredOffers, ...featuredOffers.slice(0, 2)];
+const featuredOffers = newProducts.slice(0, 4);
+const dealsOfTheDay = allProducts.filter((item) => item.oldPrice).slice(0, 4);
+const promoItems = [...bestSellers.slice(0, 4), ...featuredOffers.slice(0, 2)];
 
 export default function Offers({
   cartItems           = [],

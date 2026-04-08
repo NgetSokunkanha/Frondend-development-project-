@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header      from "../components/header.jsx";
 import Footer      from "../components/footer.jsx";
 import ProductCard from "../components/ProductCard.jsx";
-import { getItemsBySection } from "../data/storeItems.js";
+import { bestSellers, allProducts } from "../data/Products.js";
 import bestSellerHero1 from "../assets/best seller/best seller hero 1.png";
 import bestSellerHero2 from "../assets/best seller/best seller hero 2.png";
 import popularCategory1 from "../assets/best seller/popular category 1.png";
@@ -11,8 +11,10 @@ import popularCategory2 from "../assets/best seller/popular category 2.png";
 import popularCategory3 from "../assets/best seller/popular category 3.png";
 import popularCategory4 from "../assets/best seller/popular category 4.png";
 
-const dailyBestSellers = getItemsBySection("dailyBestSellers");
-const risingTrends     = getItemsBySection("risingTrends");
+const dailyBestSellers = bestSellers.slice(0, 4);
+const risingTrends = allProducts
+  .filter((item) => !bestSellers.some((best) => best.name === item.name))
+  .slice(0, 4);
 
 const categoryPromoCards = [
   { title: "Fresh Meat",        tone: "lime",  image: popularCategory1 },
