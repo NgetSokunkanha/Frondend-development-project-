@@ -96,8 +96,11 @@
 .offers-highlight-block {
   min-height: 260px;
   border-radius: 28px;
-  background: linear-gradient(135deg, #eff4e8, #dae8c6);
   box-shadow: var(--shadow-card);
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .offers-arrival-right {

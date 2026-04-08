@@ -65,13 +65,14 @@ export default function HomePage() {
           cta="View All Deals"
         />
         <div className="offers-grid">
-          {offers.map(({ emoji, label, discount, bgClass }) => (
+          {offers.map(({ label, discount, bgClass, image }) => (
             <div key={label} className={`offer-card ${bgClass}`}>
               <div className="offer-label">{label}</div>
               <span className="offer-discount">{discount}</span>
-              <button className="offer-btn">
+              <button className="offer-btn" onClick={() => navigate("/offers")}>
                 Shop Now <FiArrowRight size={12} />
               </button>
+              {image && <img className="offer-card-image" src={image} alt={label} />}
             </div>
           ))}
         </div>

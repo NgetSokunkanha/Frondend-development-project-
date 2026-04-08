@@ -2,17 +2,23 @@ import "../styles/bestSeller.css";
 import { useNavigate } from "react-router-dom";
 import Header      from "../components/header.jsx";
 import Footer      from "../components/footer.jsx";
-import ProductCard from "../components/productCard.jsx";
+import ProductCard from "../components/ProductCard.jsx";
 import { getItemsBySection } from "../data/storeItems.js";
+import bestSellerHero1 from "../assets/best seller/best seller hero 1.png";
+import bestSellerHero2 from "../assets/best seller/best seller hero 2.png";
+import popularCategory1 from "../assets/best seller/popular category 1.png";
+import popularCategory2 from "../assets/best seller/popular category 2.png";
+import popularCategory3 from "../assets/best seller/popular category 3.png";
+import popularCategory4 from "../assets/best seller/popular category 4.png";
 
 const dailyBestSellers = getItemsBySection("dailyBestSellers");
 const risingTrends     = getItemsBySection("risingTrends");
 
 const categoryPromoCards = [
-  { title: "Fresh Meat",        tone: "lime"  },
-  { title: "Fresh Vegetables",  tone: "green" },
-  { title: "Snacks & Drinks",   tone: "green" },
-  { title: "Fresh Produce",     tone: "lime"  },
+  { title: "Fresh Meat",        tone: "lime",  image: popularCategory1 },
+  { title: "Fresh Vegetables",  tone: "green", image: popularCategory2 },
+  { title: "Snacks & Drinks",   tone: "green", image: popularCategory3 },
+  { title: "Fresh Produce",     tone: "lime",  image: popularCategory4 },
 ];
 
 export default function BestSeller({
@@ -59,11 +65,11 @@ export default function BestSeller({
                 <span>Fast Moving.</span>
                 <span>Don&apos;t <strong>Miss Out.</strong></span>
               </h2>
-              <div className="bs-main-illustration" />
+              <img className="bs-main-illustration" src={bestSellerHero1} alt="Best seller highlights" />
             </article>
 
             <article className="bs-promo bs-promo-side">
-              <div className="bs-side-image" />
+              <img className="bs-side-image" src={bestSellerHero2} alt="Top selling products" />
               <div className="bs-side-caption">
                 <p>Shop what everyone&apos;s loving at UniMart.</p>
                 <button type="button" className="bs-side-shop-btn">
@@ -144,7 +150,16 @@ export default function BestSeller({
                     key={card.title}
                     className={`bs-cat-promo bs-cat-promo-${card.tone}`}
                   >
-                    <h5>{card.title}</h5>
+                    <h5>
+                      {card.title === "Fresh Meat" ? (
+                        <>
+                          Fresh
+                          <span className="bs-cat-promo-title-lower">Meat</span>
+                        </>
+                      ) : (
+                        card.title
+                      )}
+                    </h5>
                     <button
                       type="button"
                       className="bs-cat-buy-btn"
@@ -152,7 +167,7 @@ export default function BestSeller({
                     >
                       Buy Now
                     </button>
-                    <div className="bs-cat-promo-image" />
+                    <img className="bs-cat-promo-image" src={card.image} alt={card.title} />
                   </article>
                 ))}
               </div>
