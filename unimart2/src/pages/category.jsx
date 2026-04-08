@@ -8,6 +8,8 @@ import ProductCard from "../components/ProductCard.jsx";
 import { allProducts }               from "../data/Products.js";
 import { categories, categoryNames } from "../data/Categories.js";
 import "../styles/Category.css";
+import categoryHeroImage1            from "../assets/category/hero3.jpg";
+import categoryHeroImage2            from "../assets/category/hero category 2.png";
 
 
 
@@ -62,6 +64,7 @@ export default function CategoryPage({
 
       {/* Hero */}
       <div className="cat-hero">
+        <img className="cat-hero-banner-image" src={categoryHeroImage1} alt="" aria-hidden="true" />
         <div className="cat-hero-overlay" />
         <div className="cat-hero-content">
           <p className="cat-hero-eyebrow">Browse our collection</p>
@@ -130,6 +133,7 @@ export default function CategoryPage({
 
         {/* CTA Banner */}
         <div className="cat-cta">
+          <img className="cat-cta-banner-image" src={categoryHeroImage2} alt="" aria-hidden="true" />
           <div className="cat-cta-overlay" />
           <div className="cat-cta-content">
             <h2 className="cat-cta-title">

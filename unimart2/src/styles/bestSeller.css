@@ -214,6 +214,7 @@
   padding: 2px 0;
 }
 
+
 .bs-view-all:hover {
   color: var(--clr-green);
   text-decoration: underline;
@@ -223,13 +224,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-}
-
-.bs-products-row .product-card {
-  border-radius: 18px;
-  border-color: #f2ebbf;
-  box-shadow: none;
-  background: #fff8c8;
 }
 
 .bs-categories {
@@ -283,6 +277,11 @@
   max-width: 70%;
 }
 
+.bs-cat-promo-title-lower {
+  display: block;
+  margin-top: 0.22em;
+}
+
 .bs-cat-buy-btn {
   position: relative;
   z-index: 2;
@@ -313,6 +312,13 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  right: 8px;
+  top: 10px;
+  bottom: 10px;
+  width: 48%;
+  height: calc(100% - 20px);
+  object-fit: contain;
+  object-position: right center;
   z-index: 1;
   pointer-events: none;
 }

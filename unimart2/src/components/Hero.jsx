@@ -31,25 +31,15 @@ const slides = [
 ];
 
 export default function Hero() {
-  const [idx, setIdx]       = useState(0);
-  const [fading, setFading] = useState(false);
+  const [idx, setIdx] = useState(0);
 
   const go = (dir) => {
-    if (fading) return;
-    setFading(true);
-    setTimeout(() => {
-      setIdx((p) => (p + dir + slides.length) % slides.length);
-      setFading(false);
-    }, 300);
+    setIdx((p) => (p + dir + slides.length) % slides.length);
   };
 
   const goTo = (i) => {
-    if (fading || i === idx) return;
-    setFading(true);
-    setTimeout(() => {
-      setIdx(i);
-      setFading(false);
-    }, 300);
+    if (i === idx) return;
+    setIdx(i);
   };
 
   const s = slides[idx];
@@ -57,12 +47,12 @@ export default function Hero() {
   return (
     <section className={`hero ${s.bgClass}`}>
       <div
-        className={`hero-bg ${fading ? "hero-hidden" : "hero-visible"}`}
+        className="hero-bg hero-visible"
         style={{ backgroundImage: `url(${s.image})` }}
       />
       <div className="hero-overlay" />
 
-      <div className={`hero-content ${fading ? "hero-hidden" : "hero-visible"}`}>
+      <div className="hero-content hero-visible">
 
         <h1 className="hero-headline">
           {s.headline}
@@ -80,7 +70,7 @@ export default function Hero() {
 
       </div>
 
-      <div className={`hero-emoji ${fading ? "hero-hidden" : "hero-visible"}`}>
+      <div className="hero-emoji hero-visible">
         {s.emoji}
       </div>
 

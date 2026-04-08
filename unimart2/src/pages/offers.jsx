@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Header      from "../components/header.jsx";
 import Footer      from "../components/footer.jsx";
-import ProductCard from "../components/productCard.jsx";
-import { getItemsBySection } from "../data/storeItems.js";
+import ProductCard from "../components/ProductCard.jsx";
+import { newProducts, bestSellers, allProducts } from "../data/Products.js";
+import promoBanner from "../assets/offers/promo banner.png";
 import "../styles/offers.css";
 
-const featuredOffers = getItemsBySection("featuredOffers");
-const promoItems     = [...featuredOffers, ...featuredOffers.slice(0, 2)];
+const featuredOffers = newProducts.slice(0, 4);
+const dealsOfTheDay = allProducts.filter((item) => item.oldPrice).slice(0, 4);
+const promoItems = [...bestSellers.slice(0, 4), ...featuredOffers.slice(0, 2)];
 
 export default function Offers({
   cartItems           = [],
@@ -57,7 +59,11 @@ export default function Offers({
             </div>
 
             <div className="offers-arrival-grid">
-              <div className="offers-highlight-block" />
+              <img
+                className="offers-highlight-block"
+                src={promoBanner}
+                alt="Promotional banner"
+              />
               <div className="offers-arrival-right">
                 <div className="offers-cards-grid offers-cards-grid-sm">
                   {featuredOffers.map((item, index) => (
@@ -84,12 +90,31 @@ export default function Offers({
           <section className="offers-section">
             <div className="offers-section-header">
               <h3 className="offers-title">DEALS OF THE DAY</h3>
+              <button
+                className="offers-view-more"
+                type="button"
+                onClick={() => navigate("/category")}
+              >
+                VIEW ALL
+              </button>
             </div>
             <div className="offers-deals-row">
-              <div className="offers-deal-box" />
-              <div className="offers-deal-box" />
-              <div className="offers-deal-box" />
-              <div className="offers-deal-box" />
+              {dealsOfTheDay.map((item, index) => (
+                <ProductCard
+                  key={`deal-${item.name}-${index}`}
+                  image={item.image}
+                  name={item.name}
+                  brand={item.brand}
+                  price={item.price}
+                  oldPrice={item.oldPrice}
+                  rating={item.rating}
+                  badge={item.badge}
+                  inStock={true}
+                  onAddToCart={onAddToCart}
+                  isFavorite={favoriteItemKeys.includes(item.name)}
+                  onToggleFavorite={onToggleFavorite}
+                />
+              ))}
             </div>
           </section>
 
@@ -97,8 +122,6 @@ export default function Offers({
             <div className="offers-section-header">
               <h3 className="offers-title">PROMOTIONS</h3>
             </div>
-            <div className="offers-banner-strip" />
-
             <div className="offers-cards-grid offers-cards-grid-lg">
               {promoItems.map((item, index) => (
                 <ProductCard
@@ -117,8 +140,6 @@ export default function Offers({
                 />
               ))}
             </div>
-
-            <div className="offers-banner-strip offers-banner-strip-bottom" />
           </section>
         </main>
 

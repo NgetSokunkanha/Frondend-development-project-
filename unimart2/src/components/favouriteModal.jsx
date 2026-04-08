@@ -55,10 +55,14 @@ export default function FavouriteModal({
 					<>
 						<div className="favourite-items-list">
 							{items.map((item) => (
-								<article key={item.key} className="favourite-item-row">
-							<div className="favourite-item-image" />
+							<article key={item.key || item.name} className="favourite-item-row">
+								<div className="favourite-item-image">
+									{item.image ? (
+										<img src={item.image} alt={item.name} />
+									) : null}
+								</div>
 
-									<div className="favourite-item-main">
+								<div className="favourite-item-main">
 										<p className="favourite-item-name">{item.name}</p>
 										<p className="favourite-item-brand">{item.brand}</p>
 										<p className="favourite-item-price">${item.price.toFixed(2)}</p>

@@ -4,7 +4,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import ProductCard from "./ProductCard"; 
 import "../styles/ProductRow.css";
 
-export default function ProductRow({ products = [] }) {
+export default function ProductRow({ products = [], onAddToCart, onToggleFavorite, favoriteItemKeys = [] }) {
   const trackRef = useRef(null);
 
   const scroll = (dir) => {
@@ -16,7 +16,12 @@ export default function ProductRow({ products = [] }) {
       <div className="product-row-track" ref={trackRef}>
         {products.map((product, i) => (
           <div key={i} className="product-row-item">
-            <ProductCard {...product} />
+            <ProductCard
+              {...product}
+              onAddToCart={onAddToCart}
+              onToggleFavorite={onToggleFavorite}
+              isFavorite={favoriteItemKeys.includes(product.name)}
+            />
           </div>
         ))}
       </div>

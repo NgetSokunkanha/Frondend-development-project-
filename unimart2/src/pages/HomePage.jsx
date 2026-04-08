@@ -20,14 +20,42 @@ const features = [
 ];
 
 
-export default function HomePage() {
+export default function HomePage({
+  cartItems           = [],
+  onAddToCart,
+  onUpdateCartQuantity,
+  onRemoveFromCart,
+  onClearCart,
+  favoriteItems       = [],
+  favoriteItemKeys    = [],
+  onToggleFavorite,
+  onRemoveFavorite,
+  onClearFavorites,
+  currentUser         = null,
+  onLogin,
+  onSignUp,
+  onLogout,
+}) {
   const navigate = useNavigate();
   const handleCategoryClick = (label) => {
     navigate(`/category?cat=${encodeURIComponent(label)}`);
   };
   return (
     <>
-      <Header />
+      <Header
+        cartItems={cartItems}
+        onAddToCart={onAddToCart}
+        onUpdateCartQuantity={onUpdateCartQuantity}
+        onRemoveFromCart={onRemoveFromCart}
+        onClearCart={onClearCart}
+        favoriteItems={favoriteItems}
+        onRemoveFavorite={onRemoveFavorite}
+        onClearFavorites={onClearFavorites}
+        currentUser={currentUser}
+        onLogin={onLogin}
+        onSignUp={onSignUp}
+        onLogout={onLogout}
+      />
          <main className="home-page">
   
       <Hero />
@@ -54,7 +82,7 @@ export default function HomePage() {
           subtitle=""
           cta="See All"
         />
-        <ProductRow products={newProducts} />
+        <ProductRow products={newProducts} onAddToCart={onAddToCart} onToggleFavorite={onToggleFavorite} favoriteItemKeys={favoriteItemKeys} />
       </section>
 
       <section className="home-section">
@@ -65,13 +93,14 @@ export default function HomePage() {
           cta="View All Deals"
         />
         <div className="offers-grid">
-          {offers.map(({ emoji, label, discount, bgClass }) => (
+          {offers.map(({ label, discount, bgClass, image }) => (
             <div key={label} className={`offer-card ${bgClass}`}>
               <div className="offer-label">{label}</div>
               <span className="offer-discount">{discount}</span>
-              <button className="offer-btn">
+              <button className="offer-btn" onClick={() => navigate("/offers")}>
                 Shop Now <FiArrowRight size={12} />
               </button>
+              {image && <img className="offer-card-image" src={image} alt={label} />}
             </div>
           ))}
         </div>
@@ -85,7 +114,7 @@ export default function HomePage() {
           subtitle=""
           cta="See All"
         />
-        <ProductRow products={bestSellers} />
+        <ProductRow products={bestSellers} onAddToCart={onAddToCart} onToggleFavorite={onToggleFavorite} favoriteItemKeys={favoriteItemKeys} />
       </section>
 
         <section className="home-section">
